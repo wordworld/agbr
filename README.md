@@ -1,2 +1,2 @@
-# agbr
-photograph developer
+# AgBr - photograph developer
+
