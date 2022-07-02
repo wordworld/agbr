@@ -25,6 +25,7 @@ endif ()
 
 # dir include
 include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${GLEW}/include
         ${GLFW}/include
 )
@@ -34,6 +35,9 @@ link_directories(
         ${GLEW}/build/cmake/cmake-build-debug/lib
         ${GLFW}/cmake-build-debug/src
 )
+
+# src of directories
+FILE(GLOB maths maths/*.h maths/*.cpp)
 
 # sub modules
 add_subdirectory(opengl/example)

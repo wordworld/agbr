@@ -8,9 +8,12 @@ link_libraries(
         glfw3
 )
 
+# src
+LIST(APPEND SRC_LIST ${maths})
+
 # targets
 FileBaseList(${CMAKE_CURRENT_SOURCE_DIR}/ *.cpp example_list)
 MESSAGE("example_list: ${example_list}")
 FOREACH (demo ${example_list})
-    add_executable(${demo} ${demo}.cpp)
+    add_executable(${demo} ${demo}.cpp ${SRC_LIST})
 ENDFOREACH (demo)
