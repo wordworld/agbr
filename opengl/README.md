@@ -13,3 +13,13 @@ The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C
 provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform.
 OpenGL core and extension functionality is exposed in a single header file. GLEW has been tested on a variety of
 operating systems, including Windows, Linux, Mac OS X, FreeBSD, Irix, and Solaris.
+
+* [GLFW3库在MacOS上导致 undefined symbol](https://www.coder.work/article/4061346)
+
+  > Undefined symbols for architecture x86_64:
+  >
+  > "_CFArrayAppendValue", referenced from:
+  >
+  > _addJoystickElement in libglfw3.a(cocoa_joystick.o)
+  >
+  > ... 
