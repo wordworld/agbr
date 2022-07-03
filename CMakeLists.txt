@@ -16,6 +16,7 @@ find_package(OpenGL REQUIRED)
 MESSAGE(opengl_lib:${OPENGL_LIBRARIES})
 SET(GLEW opengl/glew-2.2.0)
 SET(GLFW opengl/glfw-3.3.7)
+SET(LIBPP github.com/mcinglis)
 
 # mac special
 if (APPLE)
@@ -28,6 +29,7 @@ include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${GLEW}/include
         ${GLFW}/include
+        ${LIBPP}
 )
 
 # dir library

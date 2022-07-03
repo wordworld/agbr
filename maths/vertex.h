@@ -6,6 +6,7 @@
 #define AGBR_VERTEX_H
 
 #include <algorithm>
+#include <libpp/macros.h>
 
 namespace agbr {
     template<int N, typename T>
@@ -32,53 +33,26 @@ namespace agbr {
         }
     };
 
-    template<typename T>
-    union vtx2
-    {
-        vtx<2, T> of;
-        struct { T x, y; };
-        struct { T u, v; };
-        struct { T a, b; };
 
-        vtx2(std::initializer_list<T> list) : of(list) {}
-    };
+#define DECL_UNION_T(...) struct { T PP_INTERSPERSE(PP_SEP_COMMA, __VA_ARGS__); }
+#define DECL_UNION_VTX(N, ...)                                          \
+    template<typename T>                                                \
+    union PP_CONCAT(vtx,N){                                             \
+        vtx<N,T> of;                                                    \
+        PP_MAP_LISTS(DECL_UNION_T, PP_SEP_SEMICOLON, __VA_ARGS__);      \
+        operator vtx<N, T>() { return of; }                             \
+        PP_CONCAT(vtx,N)(std::initializer_list<T> list) : of(list) {}   \
+    };                                                                  \
+    using PP_FOLDL(PP_CONCAT,vtx,N,u) = PP_CONCAT(vtx,N)<uint32_t>;     \
+    using PP_FOLDL(PP_CONCAT,vtx,N,i) = PP_CONCAT(vtx,N)<int32_t>;      \
+    using PP_FOLDL(PP_CONCAT,vtx,N,l) = PP_CONCAT(vtx,N)<int64_t>;      \
+    using PP_FOLDL(PP_CONCAT,vtx,N,f) = PP_CONCAT(vtx,N)<float>;        \
+    using PP_FOLDL(PP_CONCAT,vtx,N,d) = PP_CONCAT(vtx,N)<double>
 
-    template<typename T>
-    union vtx3
-    {
-        vtx<3, T> of;
-        struct { T x, y, z; };
-        struct { T u, v, w; };
+    DECL_UNION_VTX(2, (x, y), (u, v), (w, h), (width, height));
 
-        vtx3(std::initializer_list<T> list) : of(list) {}
-    };
+    DECL_UNION_VTX(3, (x, y, z), (r, g, b), (u, v, w));
 
-    template<typename T>
-    union vtx4
-    {
-        vtx<4, T> of;
-        struct { T x, y, u, v; };
-        struct { T r, g, b, a; };
-
-        vtx4(std::initializer_list<T> list) : of(list) {}
-    };
-
-    using vtx2u = vtx2<uint32_t>;
-    using vtx2i = vtx2<int32_t>;
-    using vtx2l = vtx2<int64_t>;
-    using vtx2f = vtx2<float>;
-    using vtx2d = vtx2<double>;
-
-    using vtx3u = vtx3<uint32_t>;
-    using vtx3i = vtx3<int32_t>;
-    using vtx3l = vtx3<int64_t>;
-    using vtx3f = vtx3<float>;
-    using vtx3d = vtx3<double>;
-
-    using vtx4u = vtx4<uint32_t>;
-    using vtx4i = vtx4<int32_t>;
-    using vtx4l = vtx4<int64_t>;
-    using vtx4f = vtx4<float>;
-    using vtx4d = vtx4<double>;
+    DECL_UNION_VTX(4, (x, y, z, w), (r, g, b, a));
 }
 #endif //AGBR_VERTEX_H
