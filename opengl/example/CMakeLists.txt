@@ -4,8 +4,7 @@ INCLUDE(../../cmake/FileBaseList.cmake)
 # library
 link_libraries(
         ${OPENGL_LIBRARIES}
-        glewd
-        glfw3
+        ${OPENGL_3RD_LIBS}
 )
 
 # src
