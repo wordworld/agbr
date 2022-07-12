@@ -41,8 +41,6 @@ if (WIN32)
     SET(GLFW_LIB_DIR ${GLFW_LIB_DIR}/${CMAKE_CONFIGURATION_TYPES})
 else ()
     LIST(APPEND OPENGL_3RD_LIBS glewd)
-    set(CMAKE_C_COMPILER clang)
-    set(CMAKE_CXX_COMPILER clang++)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -fPIC\
         -Wno-unused-command-line-argument")
     if (APPLE)
@@ -60,3 +58,4 @@ FILE(GLOB maths maths/*.h maths/*.cpp)
 
 # sub modules
 add_subdirectory(opengl/example)
+add_subdirectory(demo)
