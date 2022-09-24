@@ -42,6 +42,7 @@ if (WIN32)
 else ()
     LIST(APPEND OPENGL_3RD_LIBS glewd)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -fPIC\
+        -Wno-macro-redefined\
         -Wno-unused-command-line-argument")
     if (APPLE)
         SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -framework OpenGL -framework IOKit\
