@@ -17,8 +17,11 @@ int main() {
         return -1;
     }
     glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2); // We want OpenGL 3.3
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1); // 我电脑上装的 OpenGL 2.1
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glewExperimental = GL_TRUE;
     // Open a window and create its OpenGL context
     GLFWwindow *window = glfwCreateWindow(WIN_WIDTH, WIN_HEIGHT, PP_STRINGIFY_E(APP_NAME), NULL, NULL);
     if (window == NULL) {

@@ -24,6 +24,8 @@ operating systems, including Windows, Linux, Mac OS X, FreeBSD, Irix, and Solari
   >
   > ...
 
+* [为什么我的OpenGL版本在Mac OS X上总是2.1？](http://duoduokou.com/macos/25478569145399474085.html)
+
 ## 参考
 
 [Mirosoft OpenGL Reference](https://docs.microsoft.com/zh-cn/windows/win32/opengl/opengl-reference)
