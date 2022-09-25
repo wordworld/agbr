@@ -31,3 +31,7 @@ operating systems, including Windows, Linux, Mac OS X, FreeBSD, Irix, and Solari
 [Mirosoft OpenGL Reference](https://docs.microsoft.com/zh-cn/windows/win32/opengl/opengl-reference)
 
 [www.opengl-tutorial.org](http://www.opengl-tutorial.org/cn/)
+
+[learnopengl-cn](https://learnopengl-cn.github.io)
+
+[现代 OpenGL 教程](https://doc.yonyoucloud.com/doc/wiki/project/modern-opengl-tutorial/index.html)

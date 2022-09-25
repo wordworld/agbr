@@ -10,6 +10,13 @@
 
 #include <libpp/macros.h>
 
+#include "draw_point.h"
+#include "draw_triangle.h"
+
+using namespace dm_triange;
+// using namespace  dm_point;
+
+
 int main() {
     // Initialise GLFW
     if (!glfwInit()) {
@@ -36,10 +43,11 @@ int main() {
         return -1;
     }
     // Ensure we can capture the escape key being pressed below
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    //glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    dm_init();
     do {
         // Draw nothing, see you in tutorial 2 !
-
+        dm_draw();
         // Swap buffers
         glfwSwapBuffers(window);
         /* Poll for and process events */

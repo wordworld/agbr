@@ -21,7 +21,7 @@ namespace agbr {
         vtx(std::initializer_list<T> list) {
             auto it = list.begin();
             for (int i = 0; i < std::min(N, (int) list.size()); i++)
-                data[i] = *(it++);
+                data[i] = *it++;
         }
 
         T &operator[](const int index) {
@@ -49,10 +49,11 @@ namespace agbr {
     using PP_FOLDL(PP_CONCAT,vtx,N,f) = PP_CONCAT(vtx,N)<float>;        \
     using PP_FOLDL(PP_CONCAT,vtx,N,d) = PP_CONCAT(vtx,N)<double>
 
+    // vtx2[uilfd]
     DECL_UNION_VTX(2, (x, y), (u, v), (w, h), (width, height));
-
+    // vtx3[uilfd]
     DECL_UNION_VTX(3, (x, y, z), (r, g, b), (u, v, w));
-
+    // vtx4[uilfd]
     DECL_UNION_VTX(4, (x, y, z, w), (r, g, b, a));
 }
 #endif //AGBR_VERTEX_H
